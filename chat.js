@@ -1,16 +1,40 @@
-document.getElementById('inputArea').addEventListener('submit', function (e) {
-    e.preventDefault();
+const form = document.getElementById('inputArea');
+const input = document.getElementById('userInput');
+const chatbox = document.getElementById('chatbox');
 
-    var userInput = document.getElementById('userInput').value;
-    
-    // Append user's message to the chatbox
-    var message = document.createElement('p');
-    message.textContent = "You: " + userInput;
-    document.getElementById('chatbox').appendChild(message);
+form.addEventListener('submit', function(event) {
+    // Prevent the form from trying to submit to a server
+    event.preventDefault();
 
-    // Here you'd typically send the user's message to your chatbot API for processing
-    // Once you receive the response, you can append it to the chatbox as well
+    const userMessage = input.value;
 
-    // Clear the user's input
-    document.getElementById('userInput').value = '';
+    // Create a new paragraph element and add the user's message
+    const userPara = document.createElement('p');
+    userPara.textContent = `User: ${userMessage}`;
+    chatbox.appendChild(userPara);
+
+    // Clear the input area
+    input.value = '';
+
+    // Generate the bot's response (this is where you'd call your chatbot API or function)
+    const botMessage = generateResponse(userMessage);
+
+    // Create a new paragraph element and add the bot's message
+    const botPara = document.createElement('p');
+    botPara.textContent = `Bot: ${botMessage}`;
+    chatbox.appendChild(botPara);
 });
+
+async function generateResponse(message) {
+    const response = await fetch('http://localhost:3000/message', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: message }),
+    });
+
+    const data = await response.json();
+    return data.message;
+}
+
