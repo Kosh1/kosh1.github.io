@@ -26,7 +26,7 @@ form.addEventListener('submit', async function(event) {
 });
 
 async function generateResponse(message) {
-    const response = await fetch('http://localhost:3000/message', {
+    const response = await fetch('http://localhost:3000/chat', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
