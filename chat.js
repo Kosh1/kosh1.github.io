@@ -2,7 +2,7 @@ const form = document.getElementById('inputArea');
 const input = document.getElementById('userInput');
 const chatbox = document.getElementById('chatbox');
 
-form.addEventListener('submit', function(event) {
+form.addEventListener('submit', async function(event) {
     // Prevent the form from trying to submit to a server
     event.preventDefault();
 
@@ -17,7 +17,7 @@ form.addEventListener('submit', function(event) {
     input.value = '';
 
     // Generate the bot's response (this is where you'd call your chatbot API or function)
-    const botMessage = generateResponse(userMessage);
+    const botMessage = await generateResponse(userMessage);
 
     // Create a new paragraph element and add the bot's message
     const botPara = document.createElement('p');
