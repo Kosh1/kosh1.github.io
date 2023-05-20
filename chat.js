@@ -2,27 +2,30 @@ const form = document.getElementById('inputArea');
 const input = document.getElementById('userInput');
 const chatbox = document.getElementById('chatbox');
 
-form.addEventListener('submit', async function(event) {
-    // Prevent the form from trying to submit to a server
-    event.preventDefault();
+input.addEventListener('keydown', async function(event) {
+    // Check if the Enter key was pressed
+    if (event.key === 'Enter') {
+        // Prevent the form from trying to submit to a server
+        event.preventDefault();
 
-    const userMessage = input.value;
+        const userMessage = input.value;
 
-    // Create a new paragraph element and add the user's message
-    const userPara = document.createElement('p');
-    userPara.textContent = `User: ${userMessage}`;
-    chatbox.appendChild(userPara);
+        // Create a new paragraph element and add the user's message
+        const userPara = document.createElement('p');
+        userPara.textContent = `User: ${userMessage}`;
+        chatbox.appendChild(userPara);
 
-    // Clear the input area
-    input.value = '';
+        // Clear the input area
+        input.value = '';
 
-    // Generate the bot's response (this is where you'd call your chatbot API or function)
-    const botMessage = await generateResponse(userMessage);
+        // Generate the bot's response (this is where you'd call your chatbot API or function)
+        const botMessage = await generateResponse(userMessage);
 
-    // Create a new paragraph element and add the bot's message
-    const botPara = document.createElement('p');
-    botPara.textContent = `Bot: ${botMessage}`;
-    chatbox.appendChild(botPara);
+        // Create a new paragraph element and add the bot's message
+        const botPara = document.createElement('p');
+        botPara.textContent = `Bot: ${botMessage}`;
+        chatbox.appendChild(botPara);
+    }
 });
 
 async function generateResponse(message) {
@@ -37,4 +40,3 @@ async function generateResponse(message) {
     const data = await response.json();
     return data.message;
 }
-
