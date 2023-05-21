@@ -4,7 +4,14 @@ const chatbox = document.getElementById('chatbox');
 
 window.addEventListener('load', async function(event) {
     // Initialize the conversation with the system message
-    await fetch('http://localhost:3000/init');
+    const initResponse = await fetch('http://localhost:3000/init');
+    const initData = await initResponse.json();
+    const initMessage = initData.message;
+
+    // Create a new paragraph element and add the bot's initial message
+    const initPara = document.createElement('p');
+    initPara.textContent = `Bot: ${initMessage}`;
+    chatbox.appendChild(initPara);
 });
 
 input.addEventListener('keydown', async function(event) {
