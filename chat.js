@@ -33,7 +33,7 @@ input.addEventListener('keydown', async function(event) {
     }
 });
 
-async functiongenerateResponse(message) {
+async function generateResponse(message) {
     const response = await fetch('http://localhost:3000/chat', {
         method: 'POST',
         headers: {
