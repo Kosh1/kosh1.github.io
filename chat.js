@@ -2,6 +2,11 @@ const form = document.getElementById('inputArea');
 const input = document.getElementById('userInput');
 const chatbox = document.getElementById('chatbox');
 
+window.addEventListener('load', async function(event) {
+    // Initialize the conversation with the system message
+    await fetch('http://localhost:3000/init');
+});
+
 input.addEventListener('keydown', async function(event) {
     // Check if the Enter key was pressed
     if (event.key === 'Enter') {
@@ -28,7 +33,7 @@ input.addEventListener('keydown', async function(event) {
     }
 });
 
-async function generateResponse(message) {
+async functiongenerateResponse(message) {
     const response = await fetch('http://localhost:3000/chat', {
         method: 'POST',
         headers: {
