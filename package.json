@@ -22,8 +22,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "heroku-postbuild": "npm install && npm run build"
-  },
+    "postdeploy": "mv build/index.html build/404.html && gh-pages -d build"
+     },
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -45,5 +45,5 @@
   "devDependencies": {
     "gh-pages": "^5.0.0"
   },
-  "homepage": "https://github.com/Kosh1/kosh1.github.io"
+  "homepage": "https://kosh1.github.io/"
 }
