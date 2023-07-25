@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Kosh1/kosh1.github.io/static/css/main.a58e0ece.css",
+    "main.js": "/Kosh1/kosh1.github.io/static/js/main.7bada69e.js",
+    "static/js/787.b1bd2f40.chunk.js": "/Kosh1/kosh1.github.io/static/js/787.b1bd2f40.chunk.js",
+    "index.html": "/Kosh1/kosh1.github.io/index.html",
+    "main.a58e0ece.css.map": "/Kosh1/kosh1.github.io/static/css/main.a58e0ece.css.map",
+    "main.7bada69e.js.map": "/Kosh1/kosh1.github.io/static/js/main.7bada69e.js.map",
+    "787.b1bd2f40.chunk.js.map": "/Kosh1/kosh1.github.io/static/js/787.b1bd2f40.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a58e0ece.css",
+    "static/js/main.7bada69e.js"
+  ]
+}
