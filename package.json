@@ -22,8 +22,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "heroku-postbuild": "npm install && npm run build"
-  },
+    "postdeploy": "mv build/index.html build/404.html && gh-pages -d build"
+     },
   "eslintConfig": {
     "extends": [
       "react-app",
